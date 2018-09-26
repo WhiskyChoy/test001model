@@ -1,0 +1,21 @@
+JFXButton {
+    -fx-background-color: rgb(113, 150, 159);
+    -fx-text-fill: WHITE;
+}
+
+JFXButton:hover {
+    -fx-cursor: HAND;
+}
+
+JFXRadioButton:hover {
+    -fx-cursor: HAND;
+}
+
+Canvas:hover {
+    -fx-cursor: CROSSHAIR;
+}
+
+.view-box:hover {
+    -fx-effect: dropshadow(three-pass-box, #72b9da, 10.0, 0, 0, 0);
+    -fx-cursor: HAND;
+}

@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.canvas.*?>
+<?import com.jfoenix.controls.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane stylesheets="@../../css/global.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ui.elements.main.MainController">
+    <children>
+        <BorderPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <center>
+                <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="780.0" BorderPane.alignment="CENTER">
+                    <children>
+                        <HBox alignment="CENTER" layoutX="364.0" layoutY="44.0" prefHeight="500.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                            <children>
+                                <AnchorPane fx:id="mainCanvasSaver" maxHeight="400.0" maxWidth="600.0" style="-fx-border-width: 2; -fx-border-color: black;">
+                                    <children>
+                              <AnchorPane fx:id="trailSaver" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                        <Canvas id="canvas" fx:id="canvas" height="400.0" onMouseDragged="#onMouseDragged" onMousePressed="#onMousePressed" onMouseReleased="#onMouseReleased" width="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                    </children>
+                                </AnchorPane>
+
+                            </children>
+                        </HBox>
+                    </children>
+                </AnchorPane>
+            </center>
+            <left>
+                <AnchorPane prefHeight="200.0" prefWidth="400.0" style="-fx-background-color: rgb(0,49,79);" BorderPane.alignment="CENTER">
+                    <children>
+                        <VBox layoutX="92.0" layoutY="216.0" prefHeight="200.0" prefWidth="100.0" spacing="20.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                            <children>
+                                <HBox alignment="CENTER_LEFT" prefHeight="65.0" prefWidth="400.0" spacing="30.0">
+                                    <children>
+                                        <Label text="文件图像预览（默认目录）：" textFill="WHITE">
+                                            <font>
+                                                <Font size="24.0" />
+                                            </font>
+                                        </Label>
+                                    </children>
+                                    <opaqueInsets>
+                                        <Insets right="10.0" />
+                                    </opaqueInsets>
+                                    <VBox.margin>
+                                        <Insets left="50.0" />
+                                    </VBox.margin>
+                                </HBox>
+                        <ScrollPane prefHeight="703.0" prefWidth="400.0" style="-fx-border-color: rgb(0,49,79); -fx-border-width: 2;">
+                           <content>
+                              <VBox fx:id="fileSaver" alignment="TOP_CENTER" prefHeight="686.0" prefWidth="394.0" spacing="20.0">
+                                 <padding>
+                                    <Insets top="10.0" />
+                                 </padding></VBox>
+                           </content>
+                        </ScrollPane>
+                            </children>
+                        </VBox>
+                    </children>
+                </AnchorPane>
+            </left>
+            <right>
+                <AnchorPane prefHeight="200.0" prefWidth="400.0" style="-fx-background-color: rgb(0,49,79);" BorderPane.alignment="CENTER">
+                    <children>
+                        <VBox layoutX="87.0" layoutY="226.0" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                            <children>
+                                <HBox alignment="CENTER_LEFT" prefHeight="65.0" prefWidth="400.0" spacing="20.0">
+                                    <children>
+                                        <Label text="文件：" textFill="WHITE">
+                                            <font>
+                                                <Font size="24.0" />
+                                            </font>
+                                        </Label>
+                                        <JFXButton onAction="#initBoard" text="新建" />
+                                        <JFXButton onAction="#saveFile" text="保存" />
+                              <JFXButton onAction="#onClearAllFiles" text="清空存储" />
+                                    </children>
+                                    <VBox.margin>
+                                        <Insets left="50.0" />
+                                    </VBox.margin>
+                                    <opaqueInsets>
+                                        <Insets right="10.0" />
+                                    </opaqueInsets>
+                                </HBox>
+                                <HBox alignment="CENTER_LEFT" prefHeight="65.0" prefWidth="400.0" spacing="30.0">
+                                    <children>
+                                        <Label text="模式：" textFill="WHITE">
+                                            <font>
+                                                <Font size="24.0" />
+                                            </font>
+                                        </Label>
+                                        <JFXRadioButton fx:id="btDraw" selected="true" text="绘制" textFill="WHITE">
+                                            <toggleGroup>
+                                                <ToggleGroup fx:id="mode" />
+                                            </toggleGroup>
+                                        </JFXRadioButton>
+                                        <JFXRadioButton fx:id="btSelect" text="选择" textFill="WHITE" toggleGroup="$mode" />
+                                    </children>
+                                    <opaqueInsets>
+                                        <Insets right="10.0" />
+                                    </opaqueInsets>
+                                    <padding>
+                                        <Insets left="50.0" />
+                                    </padding>
+                                </HBox>
+                        <HBox alignment="CENTER_LEFT" prefHeight="65.0" prefWidth="400.0" spacing="30.0">
+                           <children>
+                              <Label text="标记：" textFill="WHITE">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Label>
+                              <JFXTextField fx:id="tfMark" disable="true" editable="false" onKeyPressed="#onEnterPressed" prefHeight="30.0" prefWidth="156.0" promptText="请输入标记" style="-fx-text-fill: white;" stylesheets="@../../css/global.css" unFocusColor="WHITE" />
+                              <JFXButton fx:id="btConfirm" disable="true" onAction="#onConfirm" text="修改" />
+                           </children>
+                           <opaqueInsets>
+                              <Insets right="10.0" />
+                           </opaqueInsets>
+                           <padding>
+                              <Insets left="50.0" />
+                           </padding>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" prefHeight="65.0" prefWidth="400.0" spacing="30.0">
+                           <children>
+                              <Label text="图形信息：" textFill="WHITE">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                           <opaqueInsets>
+                              <Insets right="10.0" />
+                           </opaqueInsets>
+                           <padding>
+                              <Insets left="50.0" />
+                           </padding>
+                        </HBox>
+                        <ScrollPane prefHeight="575.0" prefWidth="400.0" style="-fx-border-color: rgb(0,49,79); -fx-border-width: 2;">
+                           <content>
+                              <VBox fx:id="shapeSaver" alignment="TOP_CENTER" prefHeight="523.0" prefWidth="394.0" spacing="20.0">
+                                 <padding>
+                                    <Insets top="10.0" />
+                                 </padding></VBox>
+                           </content>
+                        </ScrollPane>
+                            </children>
+                        </VBox>
+                    </children>
+                </AnchorPane>
+            </right>
+        </BorderPane>
+    </children>
+</AnchorPane>
